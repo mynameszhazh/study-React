@@ -1,11 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-// import ClassComponent from './pages/classComponent';
-// import { FunctionComponent } from './pages/FnCom';
-import HomePage from './homePage/HomePage';
-import ReacRedux from './reactRedux/ReactRdux';
-import RouterPage from './routerPage/RouterPage';
-import HookPage from './HookPage/HookPage';
 // import store from './stote';
 
 function App() {
@@ -13,9 +7,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {/* <p>
+        <p>
           Edit <code>src/App.js</code> and save to reload.
-        </p> */}
+        </p>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -24,12 +18,6 @@ function App() {
         >
           Learn React
         </a>
-        {/* <ClassComponent/>
-        <FunctionComponent /> */}
-        {/* <HomePage></HomePage> */}
-        {/* <ReacRedux></ReacRedux> */}
-        {/* <RouterPage></RouterPage> */}
-        <HookPage></HookPage>
       </header>
     </div>
   );

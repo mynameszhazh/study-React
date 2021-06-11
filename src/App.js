@@ -1,12 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-// import ClassComponent from './pages/classComponent';
-// import { FunctionComponent } from './pages/FnCom';
-import HomePage from './homePage/HomePage';
-import ReacRedux from './reactRedux/ReactRdux';
-import RouterPage from './routerPage/RouterPage';
-import HookPage from './HookPage/HookPage';
-// import store from './stote';
 
 function App() {
   return (
@@ -24,12 +17,6 @@ function App() {
         >
           Learn React
         </a>
-        {/* <ClassComponent/>
-        <FunctionComponent /> */}
-        {/* <HomePage></HomePage> */}
-        {/* <ReacRedux></ReacRedux> */}
-        {/* <RouterPage></RouterPage> */}
-        <HookPage></HookPage>
       </header>
     </div>
   );

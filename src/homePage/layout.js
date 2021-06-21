@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import BottomBar from './bottomBar'
 import TopBar from './TopBar'
 import store from '../stote/index'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 // connect(state => ({num: state})) ()
 export default class Layout extends Component {
   componentDidMount() {

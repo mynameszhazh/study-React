@@ -5,8 +5,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import store from "./stote/index2"
 import store from "./stote"
-import { Provider } from 'react-redux'
+// import { Provider } from 'react-redux'
+import { Provider } from './stote/kReactRedux'
 
 // const name = 'reate'
 // const obj = {

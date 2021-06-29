@@ -2,8 +2,9 @@ import { createStore } from 'redux'
 
 function toLogin(state = false, action) {
   if(action.type === 'login') {
-    state = !state
+    return state = !state
   }
+  return state
 }
 
 const store = createStore(toLogin)

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+import LoginPage from '../../view/LoginPage'
 
 export default connect(
   ({user}) => ({isLogin: user.isLogin})
@@ -10,7 +11,8 @@ export default connect(
     if(isLogin) {
       return <Route path={path} component={component}></Route>
     } else {
-      return <Redirect path='/login'></Redirect>
+      // path = '/login'
+      return <Redirect to={{pathname: '/login', state: {redirect: path}}}></Redirect>
     }
   }
 })

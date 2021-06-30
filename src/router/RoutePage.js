@@ -5,7 +5,7 @@ import CatePage from '../view/CatePage'
 import CarPage from '../view/CarPage'
 import ProfilePage from '../view/ProfilePage'
 import HomePage from '../view/HomePage'
-import PrivateRoute from '../components/common/privateRoute'
+import PrivateRoute from '../components/common/PrivateRoute'
 
 export default class RoutePage extends Component {
   render() {

@@ -2,19 +2,27 @@ import { createStore, combineReducers } from 'redux';
 
 const loginInfo = {
   islogin: false,
-  name: ''
+  user: {
+    name: null
+  }
 }
 
-function Login(state = loginInfo, action) {
+function Login(state = {...loginInfo}, action) {
   switch (action.type) {
   case 'Loign':
-    state.islogin = true,
-    state.name = 'xjh'
-    return state;
+    return {
+      islogin: true,
+      user: {
+        name: 'xjh'
+      }
+    };
   case 'Quit':
-    state.islogin = false,
-    state.name = ''
-    return state ;
+    return {
+      islogin: false,
+      user: {
+        name: null
+      }
+    }
   default:
     return state;
   }

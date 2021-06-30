@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Layout from '../components/common/Layout'
+// import { connect } from 'react-redux'
 
 export default class ProfilePage extends Component {
   render() {

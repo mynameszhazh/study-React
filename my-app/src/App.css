@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.HocPageBorder {
+  border: 1px solid red;
+}

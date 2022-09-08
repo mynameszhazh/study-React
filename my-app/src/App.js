@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import Layout from './components/Layout'
+import store from './store/index'
 import './App.css';
 
 function App() { 
@@ -13,12 +14,13 @@ function App() {
             {
               content:(
                 <div>
-                  <h1>123</h1>
+                  <h1>{store.getState()}</h1>
                 </div>  
               ),
               txt: msg,
               btnClick: () => {
                 console.log('btnClick')
+                store.dispatch({type: 'INCREMENT'})
               }
             }
           }

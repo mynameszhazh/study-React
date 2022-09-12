@@ -1,5 +1,6 @@
 import React from 'react'
-import Form from './form'
+// import Form from './form'
+import Form from './components/from'
 import'./index.css'
 
 export default function Antd() {

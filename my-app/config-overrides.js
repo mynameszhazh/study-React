@@ -1,23 +1,20 @@
-// 根目录创建
-const {
-  override,
-  fixBabelImports,
-  // addDecoratorsLegacy,
-  addBabelPlugins
-} = require('customize-cra') 
+const path = require('path')
+const { override, addDecoratorsLegacy } = require('customize-cra')
 
-module.exports = override(
-  // 按需加载 的配置选项
-  fixBabelImports('import', {
-    libraryName: 'antd',
-    libraryDirectory: 'es',
-    style: 'css'       
-  }),
-  addBabelPlugins([
-    '@babel/plugin-proposal-decorators',
-    {
-      legacy: true
+function resolve(dir) {
+    return path.join(__dirname, dir)
+}
+
+const customize = () => (config, env) => {
+    config.resolve.alias['@'] = resolve('src')
+    if (env === 'production') {
+        config.externals = {
+            'react': 'React',
+            'react-dom': 'ReactDOM'
+        }
     }
-  ]),
-  // addDecoratorsLegacy() // 配置装饰器
-)
+
+    return config
+};
+
+module.exports = override(addDecoratorsLegacy(), customize())

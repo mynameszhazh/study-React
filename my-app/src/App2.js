@@ -24,7 +24,6 @@ function foo2(Comp) {
 }
 
 
-// @foo2
 function Children(props) {
   console.log(props.name, 'chilren')
   return (
@@ -35,8 +34,12 @@ function Children(props) {
 }
 
 
-const Page = foo2(foo(Children))
-// const Page = Children
+// const Page = foo2(foo(Children))
+const Page = Children
+
+@foo2
+@foo2
+@foo2
 export default class App2 extends Component {
   render() {
     return (

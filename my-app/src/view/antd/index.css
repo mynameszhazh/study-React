@@ -8,3 +8,20 @@
   width: 500px;
   height: 400px;
 }
+
+.xfrom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.xfrom-btn {
+  margin-top: 20px;
+  width: 100px;
+  height: 30px;
+}
+.pwd_input {
+  margin-top: 20px;
+}

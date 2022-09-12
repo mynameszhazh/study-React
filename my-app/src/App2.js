@@ -4,7 +4,17 @@ import './App.css';
 
 // 高阶组件的使用 是一个双层的 操作
 function foo(Comp) {
-  return function(props) {
+  return function (props) {
+    return (
+      <div className='HocPageBorder'>
+        <Comp {...props}></Comp>
+      </div>
+    )
+  }
+}
+
+function foo2(Comp) {
+  return function (props) {
     return (
       <div className='HocPageBorder'>
         <Comp {...props}></Comp>
@@ -14,6 +24,7 @@ function foo(Comp) {
 }
 
 
+// @foo2
 function Children(props) {
   console.log(props.name, 'chilren')
   return (
@@ -24,7 +35,8 @@ function Children(props) {
 }
 
 
-const Page = foo(Children)
+const Page = foo2(foo(Children))
+// const Page = Children
 export default class App2 extends Component {
   render() {
     return (

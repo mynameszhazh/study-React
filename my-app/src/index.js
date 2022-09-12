@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import 'antd/dist/antd.css';
 // import App from './App';
-import App2 from './App2';
+// import App2 from './App2';
 
 import From from './view/antd/index';
 
@@ -15,8 +15,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   <Provider store={store}>
-    <App2 />
-    {/* <From /> */}
+    {/* <App2 /> */}
+    <From />
   </Provider>
   // </React.StrictMode>
 );

@@ -8,6 +8,9 @@ export default class Dialog extends Component {
     this.node = document.createElement("div");
     doc.body.appendChild(this.node);
   }
+  componentWillUnmount() {
+    window.document.body.removeChild(this.node)
+  }
   render = () => {
     return createPortal(
       <div className="dialog">

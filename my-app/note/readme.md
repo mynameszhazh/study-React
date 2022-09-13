@@ -31,3 +31,6 @@ function bar(any) {}
 ### 弹窗类组件的编写
 - 思路
   - 利用 react 的portal 来进行实现
+
+### reducer
+- 接受一个 就得 state 和 action 返回一个新的 state

@@ -34,3 +34,16 @@ function bar(any) {}
 
 ### reducer
 - 接受一个 就得 state 和 action 返回一个新的 state
+
+### context
+- react 中使用 context 多级传递参数
+  - 通过 react.createContext 创建 一个上下文
+  - 通过 provider 这样的api 进行一个 定义值
+  - consumer 进行一个 参数的接收
+  - 原理不还是一个 props 的方式
+  - 可以进行响应式 
+    - 如果只是一个常数, 是不会进行重新渲染的
+
+### redux
+- 基本使用
+- 手写redux

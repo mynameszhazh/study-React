@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import "antd/dist/antd.css";
-// import App from './App';
+import App from './App';
 // import App2 from './App2';
 
-import From from './view/antd/index';
+// import From from './view/antd/index';
 // import TestDialog from "./view/dialog/index";
 
 import reportWebVitals from "./reportWebVitals";
@@ -16,10 +16,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
   <Provider store={store}>
+    <App />
     {/* <App2 /> */}
 
     {/* 表单 */}
-    <From />
+    {/* <From /> */}
 
     {/* 弹窗 */}
     {/* <TestDialog></TestDialog> */}

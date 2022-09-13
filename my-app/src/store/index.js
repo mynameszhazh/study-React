@@ -1,4 +1,5 @@
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
+import { createStore } from '../components/xredux/xredux'
 
 /**
  * 这是一个 reducer，形式为 (state, action) => state 的纯函数。

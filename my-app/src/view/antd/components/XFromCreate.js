@@ -5,11 +5,12 @@ export default function XFromCreate(Com) {
   return class extends Component {
     constructor(props) {
       super(props);
-      this.state = {};
+      this.state = { error: {} };
       this.options = {};
     }
     handleChange = (e) => {
       let { name, value } = e.target;
+      this.validate({...this.state, [name]: value})
       this.setState({ [name]: value });
     };
     // 就算是这里 也会有this 的指向问题出现
@@ -23,7 +24,7 @@ export default function XFromCreate(Com) {
               value: this.state[field] || "",
               onChange: this.handleChange,
             })}
-            {<div className="form-error">{option.rules[0].message}</div>}
+            {<div className="form-error">{this.state.error[field]}</div>}
           </div>
         );
       };
@@ -34,18 +35,22 @@ export default function XFromCreate(Com) {
     getFieldValue = (field) => {
       return this.state[field];
     };
-    validateValue = (cb) => {
+    validate = (state) => {
       const error = {};
-      const state = { ...this.state };
       for (let name in this.options) {
-        if (state[name] == undefined) {
-          error[name] = "error";
+        if (!state[name]) {
+          error[name] = this.options[name].rules[0].message;
         }
       }
-      if (JSON.stringify(error) == "{}") {
+      this.setState({ ...state, error });
+    };
+    validateValue = (cb) => {
+      const state = { ...this.state };
+      this.validate(state);
+      if (JSON.stringify(this.state.error) == "{}") {
         cb(undefined, state);
       } else {
-        cb(error, state);
+        cb(this.state.error, state);
       }
     };
     render() {

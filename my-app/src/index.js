@@ -5,8 +5,8 @@ import "antd/dist/antd.css";
 // import App from './App';
 // import App2 from './App2';
 
-// import From from './view/antd/index';
-import TestDialog from "./view/dialog/index";
+import From from './view/antd/index';
+// import TestDialog from "./view/dialog/index";
 
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
@@ -19,10 +19,10 @@ root.render(
     {/* <App2 /> */}
 
     {/* 表单 */}
-    {/* <From /> */}
+    <From />
 
     {/* 弹窗 */}
-    <TestDialog></TestDialog>
+    {/* <TestDialog></TestDialog> */}
   </Provider>
   // </React.StrictMode>
 );

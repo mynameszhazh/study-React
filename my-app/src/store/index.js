@@ -1,5 +1,7 @@
-// import { createStore } from 'redux';
-import { createStore } from '../components/xredux/xredux'
+// import { createStore, applyMiddleware } from "redux";
+import thunk from "react-thunk";
+import logger from "react-logger";
+import { createStore, applyMiddleware } from '../components/xredux/xredux'
 
 /**
  * 这是一个 reducer，形式为 (state, action) => state 的纯函数。
@@ -14,17 +16,19 @@ import { createStore } from '../components/xredux/xredux'
  */
 function counterReducer(state = 0, action) {
   switch (action.type) {
-  case 'INCREMENT':
-    return state + 1;
-  case 'DECREMENT':
-    return state - 1;
-  default:
-    return state;
+    case "@INIT/REDUX":
+      return state;
+    case "INCREMENT":
+      return state + 1;
+    case "DECREMENT":
+      return state - 1;
+    default:
+      return state;
   }
 }
 
 // 创建 Redux store 来存放应用的状态。
 // API 是 { subscribe, dispatch, getState }。
-let store = createStore(counterReducer);
+let store = createStore(counterReducer, applyMiddleware(logger, thunk));
 
-export default store
+export default store;

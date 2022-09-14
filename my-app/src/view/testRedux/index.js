@@ -1,25 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import store from "../../store/index";
 
 export default function TestRedux() {
   const add = () => {
-    console.log("add");
+    // console.log("add");
     store.dispatch("DECREMENT");
   };
   const increment = () => {
-    console.log("increment");
+    // console.log("increment");
     store.dispatch("INCREMENT");
   };
-  // 这样的东西就可以解决我的所有的问题吗
+
+  const asyncAdd = () => {
+    store.dispatch((dispatch) => {
+      setTimeout(() => {
+        dispatch("INCREMENT");
+      }, 2000);
+    });
+  };
+  const [refresh, setRefresh] = useState(false);
+
+  const doRefresh = () => setRefresh(true);
+
   useEffect(() => {
-    store.subscribe();
+    refresh && setTimeout(() => setRefresh(false));
+    store.subscribe(() => {
+      doRefresh();
+    });
   }, []);
 
   return (
     <div className="TestRedux">
+      <h2>{store.getState()}</h2>
       <button onClick={add}>add</button>
       <button onClick={increment}>increment</button>
+      <button onClick={asyncAdd}>asyncAdd</button>
     </div>
   );
 }

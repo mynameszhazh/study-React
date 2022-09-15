@@ -21,6 +21,7 @@ export function createStore(reducer, enhancer) {
   }
 
   dispatch({ type: "@INIT/REDUX" });
+
   return {
     dispatch,
     subscribe,
@@ -30,11 +31,39 @@ export function createStore(reducer, enhancer) {
 
 // 这样的写法, 就可以做一个中介的操作了, 进行一个加强操作
 export function applyMiddleware(...middlewares) {
+  // console.log(middlewares);
   return (createStore) =>
     (...arg) => {
+      // 通过这种方式,进行
       const store = createStore(...arg);
+      let dispatch = store.dispatch;
+      const middleApi = {
+        getState: store.getState,
+        dispatch,
+      };
+      const middlewaresChian = middlewares.map((middleware) => {
+        // 这是第一层的传值
+        return middleware(middleApi);
+      });
+      dispatch = compose(...middlewaresChian)(dispatch);
       return {
         ...store,
+        dispatch,
       };
     };
+}
+
+function compose(...funs) {
+  if (funs.length == 0) {
+    return (arg) => arg;
+  }
+  if (funs.length == 1) {
+    return funs[0];
+  }
+  // 用上一次执行的内容, 进行后续的操作
+  return funs.reduce(
+    (a, b) =>
+      (...args) =>
+        a(b(...args))
+  );
 }

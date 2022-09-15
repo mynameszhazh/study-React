@@ -1,7 +1,9 @@
 // import { createStore, applyMiddleware } from "redux";
-import thunk from "react-thunk";
-import logger from "react-logger";
-import { createStore, applyMiddleware } from '../components/xredux/xredux'
+// import thunk from "react-thunk";
+// import logger from "react-logger";
+import logger from "../middleware/logger";
+import thunk from "../middleware/thunk";
+import { createStore, applyMiddleware } from "../components/xredux/xredux";
 
 /**
  * 这是一个 reducer，形式为 (state, action) => state 的纯函数。

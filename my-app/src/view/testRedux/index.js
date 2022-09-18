@@ -20,9 +20,9 @@ export default class TestRedux extends Component {
 
   asyncAdd = () => {
     store.dispatch((dispatch) => {
-      // setTimeout(() => {
-      //   dispatch("INCREMENT");
-      // }, 2000);
+      setTimeout(() => {
+        dispatch({ type: "INCREMENT" });
+      }, 2000);
     });
   };
 

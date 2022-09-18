@@ -17,6 +17,7 @@ import { createStore, applyMiddleware } from "../components/xredux/xredux";
  * 根据不同的约定（如方法映射）来判断，只要适用你的项目即可。
  */
 function counterReducer(state = 0, action) {
+  // console.log(action,'store index')
   switch (action.type) {
     case "@INIT/REDUX":
       return state;
@@ -31,6 +32,7 @@ function counterReducer(state = 0, action) {
 
 // 创建 Redux store 来存放应用的状态。
 // API 是 { subscribe, dispatch, getState }。
+// console.log(applyMiddleware)
 let store = createStore(counterReducer, applyMiddleware(logger, thunk));
 
 export default store;

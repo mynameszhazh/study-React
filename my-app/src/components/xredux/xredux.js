@@ -1,12 +1,13 @@
 export function createStore(reducer, enhancer) {
   if (enhancer) {
     // 这个就是 applyMiddleware 函数
-    enhancer(createStore)(reducer);
+    return enhancer(createStore)(reducer);
   }
   let currentState = undefined;
   let currentListeners = [];
   function dispatch(action) {
     // console.log("dispatch");
+    // console.log(action)
     currentState = reducer(currentState, action);
     // 重新 执行所有订阅的 监听
     currentListeners.map((listener) => listener());
@@ -41,10 +42,16 @@ export function applyMiddleware(...middlewares) {
         getState: store.getState,
         dispatch,
       };
+      // console.log(middleApi, "middleApi");
+      // console.log(createStore, "createStore");
+      // console.log(arg, "arg");
+      // console.log(middlewares, "middwa");
+      // 要的是第一层
       const middlewaresChian = middlewares.map((middleware) => {
         // 这是第一层的传值
         return middleware(middleApi);
       });
+      console.log(middlewaresChian,'middlewaresChian')
       dispatch = compose(...middlewaresChian)(dispatch);
       return {
         ...store,
@@ -54,16 +61,19 @@ export function applyMiddleware(...middlewares) {
 }
 
 function compose(...funs) {
-  if (funs.length == 0) {
+  if (funs.length === 0) {
     return (arg) => arg;
   }
-  if (funs.length == 1) {
+  if (funs.length === 1) {
     return funs[0];
   }
   // 用上一次执行的内容, 进行后续的操作
   return funs.reduce(
     (a, b) =>
-      (...args) =>
-        a(b(...args))
+      (...args) => {
+        console.log(args, '123')
+        return a(b(...args))
+      }
+        
   );
 }

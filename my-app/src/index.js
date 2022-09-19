@@ -7,7 +7,8 @@ import "antd/dist/antd.css";
 
 // import From from './view/antd/index';
 // import TestDialog from "./view/dialog/index";
-import TestRedux from './view/testRedux/index'
+// import TestRedux from './view/testRedux/index'
+import ReactRedux from "./view/reactRedux/reactRedux";
 
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
@@ -27,7 +28,8 @@ root.render(
     {/* <TestDialog></TestDialog> */}
 
     {/* 测试 redux */}
-    <TestRedux></TestRedux>
+    {/* <TestRedux></TestRedux> */}
+    <ReactRedux></ReactRedux>
   </Provider>
   // </React.StrictMode>
 );

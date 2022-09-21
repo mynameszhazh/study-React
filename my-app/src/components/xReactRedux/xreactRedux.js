@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { bindActionCreators } from "redux";
 
 const ValueContext = React.createContext();
 
@@ -19,7 +18,6 @@ export const connect = (mapStateToProps) => (WrapperComponent) => {
       // console.log(this.context, "this.content");
 
       this.upDate();
-      bindActionCreators
       subscribe(() => {
         this.upDate();
       });

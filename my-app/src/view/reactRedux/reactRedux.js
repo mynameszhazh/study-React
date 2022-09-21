@@ -1,7 +1,15 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
+import { connect } from "../../components/xReactRedux/xreactRedux";
 
-export default connect((state) => ({ count: state }))(
+/**
+ * 注意这个 connect 中间是有好几个参数的,
+ * 官方文档才是一个正确的打开方式
+ */
+export default connect((state, props) => {
+  // console.log(props); // 这个props 是在父组件使用的时候  传入的 参数
+  return { count: state };
+})(
   class reactRedux extends Component {
     render() {
       const { count, dispatch } = this.props;

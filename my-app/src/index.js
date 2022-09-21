@@ -11,7 +11,8 @@ import "antd/dist/antd.css";
 import ReactRedux from "./view/reactRedux/reactRedux";
 
 import reportWebVitals from "./reportWebVitals";
-import { Provider } from "react-redux";
+// import { Provider } from "react-redux";
+import { Provider } from "./components/xReactRedux/xreactRedux";
 import store from "./store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -51,7 +51,7 @@ export function applyMiddleware(...middlewares) {
         // 这是第一层的传值
         return middleware(middleApi);
       });
-      console.log(middlewaresChian,'middlewaresChian')
+      // console.log(middlewaresChian,'middlewaresChian')
       dispatch = compose(...middlewaresChian)(dispatch);
       return {
         ...store,
@@ -71,7 +71,7 @@ function compose(...funs) {
   return funs.reduce(
     (a, b) =>
       (...args) => {
-        console.log(args, '123')
+        // console.log(args, '123')
         return a(b(...args))
       }
         

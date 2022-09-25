@@ -8,9 +8,9 @@ export default class testRouter extends Component {
       <div>
         <h2>router</h2>
         <BrowserRouter>
-          <Link to="/reactRedux"></Link>
-          <Link to="/dialog"></Link>
-          <Link to="/test"></Link>
+          <Link to="/reactRedux">reactRedux</Link>
+          <Link to="/dialog">dialog</Link>
+          <Link to="/test">test</Link>
 
           <Route path="/reactRedux" component={ReactRedux}></Route>
           <Route path="/dialog" component={Dialog}></Route>

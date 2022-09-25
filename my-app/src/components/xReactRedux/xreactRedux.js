@@ -6,7 +6,7 @@ export const connect = (mapStateToProps) => (WrapperComponent) => {
   return class extends Component {
     // 这样就可以 在所有的生命周期中国 使用我  provider 的所有数据了
     static contextType = ValueContext;
-    constructor(props) {
+    constructor(props, context) {
       super(props);
       this.state = {
         props: {},
@@ -15,7 +15,7 @@ export const connect = (mapStateToProps) => (WrapperComponent) => {
 
     componentDidMount() {
       const { subscribe } = this.context;
-      // console.log(this.context, "this.content");
+      console.log(this.context, "this.content");
 
       this.upDate();
       subscribe(() => {
@@ -37,7 +37,12 @@ export const connect = (mapStateToProps) => (WrapperComponent) => {
     }
 
     render() {
-      return <WrapperComponent {...this.state.props}></WrapperComponent>;
+      return (
+        <WrapperComponent
+          {...this.props}
+          {...this.state.props}
+        ></WrapperComponent>
+      );
     }
   };
 };

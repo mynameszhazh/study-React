@@ -8,7 +8,8 @@ import "antd/dist/antd.css";
 // import From from './view/antd/index';
 // import TestDialog from "./view/dialog/index";
 // import TestRedux from './view/testRedux/index'
-import ReactRedux from "./view/reactRedux/reactRedux";
+// import ReactRedux from "./view/reactRedux/reactRedux";
+import TestRouter from "./view/testRouter/testRouter";
 
 import reportWebVitals from "./reportWebVitals";
 // import { Provider } from "react-redux";
@@ -30,7 +31,10 @@ root.render(
 
     {/* 测试 redux */}
     {/* <TestRedux></TestRedux> */}
-    <ReactRedux></ReactRedux>
+    {/* <ReactRedux></ReactRedux> */}
+
+    {/* router */}
+    <TestRouter></TestRouter>
   </Provider>
   // </React.StrictMode>
 );

@@ -56,3 +56,10 @@ function bar(any) {}
 
 - 下载
   - `npm i --save react-router-dom`
+
+- 一些性能的问题
+  - 路由组件使用 component,  render , children
+    - 它的一个执行效果是不一样的
+  - component
+    - 最终,他会进行一个组件的拷贝, 然后后面的所有操作都会执行 一个组件的创建等操作这样
+  - 

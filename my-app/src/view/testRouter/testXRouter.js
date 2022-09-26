@@ -13,8 +13,8 @@ export default class testRouter extends Component {
           <Link to="/test">test</Link>
 
           <Route path="/reactRedux" component={ReactRedux}></Route>
-          <Route path="/dialog" component={Dialog}></Route>
-          <Route path="/test" component={TestRedux}></Route>
+          <Route path="/dialog" children={() => <Dialog />}></Route>
+          <Route path="/test" render={() => <TestRedux />}></Route>
         </BrowserRouter>
       </div>
     );

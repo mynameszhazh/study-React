@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import BrowserRouter from "../../components/x-react-router-dom/BrowserRouter";
 import Link from "../../components/x-react-router-dom/Link";
 import Route from "../../components/x-react-router-dom/Route";
+import Switch from "../../components/x-react-router-dom/Switch";
 export default class testRouter extends Component {
   render() {
     return (
@@ -11,10 +12,11 @@ export default class testRouter extends Component {
           <Link to="/reactRedux">reactRedux</Link>
           <Link to="/dialog">dialog</Link>
           <Link to="/test">test</Link>
-
-          <Route path="/reactRedux" component={ReactRedux}></Route>
-          <Route path="/dialog" children={() => <Dialog />}></Route>
-          <Route path="/test" render={() => <TestRedux />}></Route>
+          <Switch>
+            <Route path="/reactRedux" component={ReactRedux}></Route>
+            <Route path="/dialog" children={() => <Dialog />}></Route>
+            <Route path="/test" render={() => <TestRedux />}></Route>
+          </Switch>
         </BrowserRouter>
       </div>
     );

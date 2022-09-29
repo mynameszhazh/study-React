@@ -2,6 +2,15 @@ import { createBrowserHistory } from "@remix-run/router";
 import React, { Component } from "react";
 import RouterContext from "./RouterContext";
 export default class BrowserRouter extends Component {
+  // 根据名字知道这个函数的意思吗?
+  static computeRootMatch(pathname) {
+    return {
+      path: "/",
+      url: "/",
+      params: {},
+      isExact: pathname === "/",
+    };
+  }
   constructor(props) {
     super(props);
     this.history = createBrowserHistory();
@@ -25,7 +34,11 @@ export default class BrowserRouter extends Component {
     const { children } = this.props;
     return (
       <RouterContext.Provider
-        value={{ history: this.history, location: this.state.location }}
+        value={{
+          history: this.history,
+          location: this.state.location,
+          match: BrowserRouter.computeRootMatch(this.state.location.pathname),
+        }}
       >
         {children}
       </RouterContext.Provider>

@@ -12,16 +12,21 @@ export default class Switch extends Component {
             match = null;
           const { children } = this.props;
           const { location } = context;
+          // 这里几乎遍历的就是 我的 Route 组件, 让他们里面会有更多额参数这样
           React.Children.forEach(children, (child) => {
             if (match == null && React.isValidElement(child)) {
               element = child;
               const path = child.props.path;
+              // matchPath 一直匹配我写好的路径, context.match 是一个全局定义的 东西
               match = path
                 ? matchPath({ ...child.props, path }, location.pathname)
                 : context.match;
             }
           });
-          return match ? React.cloneElement(element, {}) : null;
+
+          return match
+            ? React.cloneElement(element, { location, computedMatch: match })
+            : null;
         }}
       </RouterContext.Consumer>
     );

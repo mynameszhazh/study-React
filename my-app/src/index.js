@@ -10,7 +10,8 @@ import "antd/dist/antd.css";
 // import TestRedux from './view/testRedux/index'
 // import ReactRedux from "./view/reactRedux/reactRedux";
 // import TestRouter from "./view/testRouter/testRouter";
-import TestXRouter from "./view/testRouter/testXRouter";
+// import TestXRouter from "./view/testRouter/testXRouter";
+import ExampleLogin from "./view/exampleLogin";
 
 import reportWebVitals from "./reportWebVitals";
 // import { Provider } from "react-redux";
@@ -36,7 +37,10 @@ root.render(
 
     {/* router */}
     {/* <TestRouter></TestRouter> */}
-    <TestXRouter></TestXRouter>
+    {/* <TestXRouter></TestXRouter> */}
+
+    {/* 项目实战 */}
+    <ExampleLogin></ExampleLogin>
   </Provider>
   // </React.StrictMode>
 );

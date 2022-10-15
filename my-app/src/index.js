@@ -2,9 +2,10 @@
 // import React from "react";
 // import ReactDOM from "react-dom/client";
 
-import React from './xreact'
+import React from "./xreact";
 import ReactDOM from "./xreact/react-dom";
 import "./index.css";
+import { Component } from "react";
 // import "antd/dist/antd.css";
 // import App from './App';
 // import App2 from './App2';
@@ -22,9 +23,26 @@ import "./index.css";
 // import { Provider } from "./components/xReactRedux/xreactRedux";
 // import store from "./store";
 
+function FnComponent() {
+  return <div>fn component</div>;
+}
+
+class ClassComponent extends Component {
+  render() {
+    return <div> calss component</div>;
+  }
+}
+
 // 手写react 测试
-const jsx = <div className="border">app</div>
-ReactDOM.render(jsx, document.getElementById('root'))
+const jsx = (
+  <div className="border">
+    <h1>title</h1>
+    <div>123</div>
+    <FnComponent />
+    <ClassComponent />
+  </div>
+);
+ReactDOM.render(jsx, document.getElementById("root"));
 
 // 功能测试
 // const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -2,10 +2,9 @@
 // import React from "react";
 // import ReactDOM from "react-dom/client";
 
-import React from "./xreact";
+import React, { Component } from "./xreact";
 import ReactDOM from "./xreact/react-dom";
 import "./index.css";
-import { Component } from "react";
 // import "antd/dist/antd.css";
 // import App from './App';
 // import App2 from './App2';
@@ -24,7 +23,13 @@ import { Component } from "react";
 // import store from "./store";
 
 function FnComponent() {
-  return <div>fn component</div>;
+  return (
+    <div>
+      {[1, 2, 3].map((item) => {
+        return <h3 key={item}>{item}</h3>;
+      })}
+    </div>
+  );
 }
 
 class ClassComponent extends Component {

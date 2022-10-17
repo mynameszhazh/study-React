@@ -27,7 +27,7 @@ function creasteTextNode(text) {
   };
 }
 
-class Component {
+export class Component {
   static isReactComponent = {}
   constructor(props) {
     this.state = props
@@ -35,6 +35,5 @@ class Component {
 }
 
 export default {
-  createElement,
-  Component
+  createElement
 };

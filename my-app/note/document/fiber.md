@@ -31,3 +31,14 @@
 ### window.requestIdleCallback(callback[,options])
 - 在浏览器的空闲时段内调用的函数排队. 
 - 原生的兼容性 不是很好
+
+### 执行下一个fiber规则
+  - 优先子元素
+  - 次级兄弟元素
+
+### 实现布局结构
+- 主要是要保存 
+  - 子fiber
+  - 下一个兄弟fiber
+  - 叔叔fiber 
+- 通过一种链表的方式,处理树结构, 可以回溯等等
